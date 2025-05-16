@@ -35,10 +35,11 @@ kotlin {
 
         androidMain.dependencies {
             implementation(libs.ktor.client.okhttp)
+            api(libs.kotlinx.coroutines.android)
         }
         commonMain.dependencies {
             implementation(libs.bundles.ktor.common)
-            api(projects.core)
+            api(libs.kotlinx.coroutines.core)
         }
     }
 }
