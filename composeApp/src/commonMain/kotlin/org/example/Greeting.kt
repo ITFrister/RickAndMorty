@@ -1,11 +1,9 @@
 package org.example
 
-import com.example.core.getPlatform
-
 class Greeting {
-    private val platform = getPlatform()
+    private val platform =
 
     fun greet(): String {
-        return "Hello, ${platform.name}!"
+        return "Hello, ${platform.name}. Is debug: ${AppConfig.isDebug}!"
     }
 }

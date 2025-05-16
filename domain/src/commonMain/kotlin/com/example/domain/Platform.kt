@@ -1,3 +1,7 @@
 package com.example.domain
 
-//expect fun platform(): String
+interface Platform {
+    fun getPlatform(): String
+}
+
+expect val platform: Platform
