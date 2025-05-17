@@ -1,5 +1,0 @@
-package com.example.domain
-
-//actual fun platform() = "Android"
-actual val platform: Platform
-    get() = TODO("Not yet implemented")

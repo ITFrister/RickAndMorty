@@ -1,9 +1,9 @@
 package org.example
 
-class Greeting {
-    private val platform =
+import com.example.domain.Platform
 
-    fun greet(): String {
-        return "Hello, ${platform.name}. Is debug: ${AppConfig.isDebug}!"
-    }
+class Greeting(
+    private val platform: Platform
+) {
+    fun greet(): String = "Hello, ${platform.getPlatform()}."
 }

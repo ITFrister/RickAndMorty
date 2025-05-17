@@ -12,7 +12,8 @@ fun initKoin(config: KoinAppDeclaration? = null) {
             dataModule,
             platformDataModule,
             presentationModule,
-            platformPresentationModule
+            platformPresentationModule,
+            networkModule
         )
     }
 }

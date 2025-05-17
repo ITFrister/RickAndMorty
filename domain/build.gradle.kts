@@ -20,6 +20,7 @@ kotlin {
             val rootDirPath = project.rootDir.path
             val projectDirPath = project.projectDir.path
             commonWebpackConfig {
+                outputFileName = "domain.js"
                 devServer = (devServer ?: KotlinWebpackConfig.DevServer()).apply {
                     static = (static ?: mutableListOf()).apply {
                         // Serve sources to debug inside browser
@@ -42,12 +43,13 @@ kotlin {
             implementation(libs.bundles.ktor.common)
             api(libs.kotlinx.coroutines.core)
             api(libs.koin.core)
+            api(projects.core)
         }
     }
 }
 
 android {
-    namespace = "com.example.domain"
+    namespace = "org.example.domain"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
