@@ -1,9 +1,9 @@
 package org.example
 
 import androidx.compose.runtime.Composable
-import com.example.domain.model.CharacterItem
+import com.example.domain.model.Character
 
 @Composable
-fun CharacterItemWidget(character: CharacterItem) {
+fun CharacterItemWidget(character: Character) {
         
 }

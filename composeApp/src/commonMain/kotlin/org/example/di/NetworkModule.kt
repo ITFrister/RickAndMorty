@@ -1,6 +1,5 @@
 package org.example.di
 
-import com.example.network.ApiService
 import com.example.network.createEngine
 import com.example.network.createHttpClient
 import io.ktor.client.HttpClient
@@ -12,6 +11,4 @@ import org.koin.dsl.module
 val networkModule = module {
     singleOf(::createEngine) { bind<HttpClientEngine>() }
     singleOf(::createHttpClient) { bind<HttpClient>() }
-
-    singleOf(::ApiService)
 }

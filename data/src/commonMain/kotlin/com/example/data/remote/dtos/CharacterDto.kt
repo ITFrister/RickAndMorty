@@ -4,7 +4,7 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class CharacterItemDto(
+data class CharacterDto(
     @SerialName("id")
     val id: Int,
 
@@ -24,10 +24,10 @@ data class CharacterItemDto(
     val gender: String,
 
     @SerialName("origin")
-    val origin: OriginDto,
+    val origin: Origin,
 
     @SerialName("location")
-    val location: LocationDto,
+    val location: Location,
 
     @SerialName("image")
     val image: String,
@@ -40,4 +40,22 @@ data class CharacterItemDto(
 
     @SerialName("created")
     val created: String
-)
+) {
+    @Serializable
+    data class Location(
+        @SerialName("name")
+        val name: String,
+
+        @SerialName("url")
+        val url: String
+    )
+
+    @Serializable
+    data class Origin(
+        @SerialName("name")
+        val name: String,
+
+        @SerialName("url")
+        val url: String
+    )
+}

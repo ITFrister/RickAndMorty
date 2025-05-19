@@ -1,6 +1,6 @@
 package com.example.domain.model
 
-data class CharacterItem(
+data class Character(
     val id: Int,
     val name: String,
     val status: String,
@@ -13,6 +13,16 @@ data class CharacterItem(
     val episode: List<String>,
     val url: String,
     val created: String
-)
+) {
+    data class Location(
+        val name: String,
+        val url: String
+    )
+
+    data class Origin(
+        val name: String,
+        val url: String
+    )
+}
 
 

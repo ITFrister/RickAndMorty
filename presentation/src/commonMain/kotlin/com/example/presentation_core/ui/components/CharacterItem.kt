@@ -25,11 +25,11 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
-import com.example.domain.model.CharacterItem
+import com.example.domain.model.Character
 import com.example.presentation_core.theme.Colors
 
 @Composable
-fun CharacterItem(character: CharacterItem) {
+fun CharacterItem(character: Character) {
     Card(
         modifier = Modifier
             .padding(8.dp)

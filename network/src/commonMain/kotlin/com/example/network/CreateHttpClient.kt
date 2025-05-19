@@ -11,12 +11,11 @@ import io.ktor.http.ContentType
 import io.ktor.http.HttpHeaders
 import io.ktor.serialization.kotlinx.json.json
 import kotlinx.serialization.json.Json
-import org.example.core.AppConfig
 
 fun createHttpClient(engine: HttpClientEngine): HttpClient {
     return HttpClient(engine) {
         install(DefaultRequest) {
-            url(AppConfig.BASE_URL)
+            //url(AppConfig.BASE_URL)
             header(HttpHeaders.ContentType, ContentType.Application.Json)
         }
         install(Logging) {

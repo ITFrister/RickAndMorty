@@ -4,21 +4,21 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class LocationDto(
+data class EpisodeDto(
     @SerialName("id")
     val id: Int,
 
     @SerialName("name")
     val name: String,
 
-    @SerialName("type")
-    val type: String,
+    @SerialName("air_date")
+    val airDate: String,
 
-    @SerialName("dimension")
-    val dimension: String,
+    @SerialName("episode")
+    val episode: String,
 
-    @SerialName("residents")
-    val residents: List<String>,
+    @SerialName("characters")
+    val characters: List<String>,
 
     @SerialName("url")
     val url: String,
