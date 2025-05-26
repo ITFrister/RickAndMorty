@@ -8,6 +8,7 @@ plugins {
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
     alias(libs.plugins.kotlin.serialization)
+    alias(libs.plugins.kotlinKsp)
 }
 
 kotlin {
@@ -37,12 +38,41 @@ kotlin {
     }
     
     sourceSets {
+        androidMain.dependencies {
+            implementation(compose.preview)
+            implementation(libs.androidx.activity.compose)
+
+            implementation(libs.koin.android)
+            implementation(libs.koin.androidx.compose)
+
+            implementation(libs.kotlinx.coroutines.android)
+        }
         commonMain.dependencies {
             implementation(projects.data)
             implementation(projects.presentation)
             implementation(projects.network)
+            implementation(projects.domain)
+            implementation(projects.core)
 
+            implementation(compose.runtime)
+            implementation(compose.foundation)
+            implementation(compose.material3)
+            implementation(compose.material3AdaptiveNavigationSuite)
+            implementation(compose.ui)
             implementation(compose.components.resources)
+            implementation(compose.components.uiToolingPreview)
+            implementation(libs.navigation.compose)
+            implementation(libs.androidx.lifecycle.viewmodel.compose)
+            implementation(libs.androidx.lifecycle.runtime.compose)
+            implementation(libs.coil.compose)
+
+            implementation(libs.koin.core)
+            implementation(libs.koin.annotations)
+            implementation(libs.koin.compose)
+            implementation(libs.koin.compose.viewmodel)
+
+            implementation(libs.kotlinx.coroutines.core)
+
             implementation(libs.bundles.ktor.common)
         }
     }
@@ -85,5 +115,6 @@ android {
 
 dependencies {
     debugImplementation(compose.uiTooling)
+    add("kspCommonMainMetadata", libs.koin.ksp.compiler)
 }
 

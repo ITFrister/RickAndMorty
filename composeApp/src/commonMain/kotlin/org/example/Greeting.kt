@@ -1,6 +1,6 @@
 package org.example
 
-import com.example.domain.Platform
+import org.example.core.Platform
 
 class Greeting(
     private val platform: Platform

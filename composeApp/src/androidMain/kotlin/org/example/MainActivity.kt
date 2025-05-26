@@ -9,7 +9,7 @@ import androidx.compose.foundation.layout.systemBarsPadding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.presentation_core.previews.CharacterItemPreview
+import org.example.presentation_core.previews.CharacterItemPreview
 import org.koin.androidx.compose.KoinAndroidContext
 class MainActivity : ComponentActivity() {
 

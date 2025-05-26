@@ -7,6 +7,7 @@ plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
+    alias(libs.plugins.kotlinKsp)
 }
 
 kotlin {
@@ -22,7 +23,7 @@ kotlin {
             val rootDirPath = project.rootDir.path
             val projectDirPath = project.projectDir.path
             commonWebpackConfig {
-                outputFileName = "presentation_core.js"
+                outputFileName = "composeApp.js"
                 devServer = (devServer ?: KotlinWebpackConfig.DevServer()).apply {
                     static = (static ?: mutableListOf()).apply {
                         // Serve sources to debug inside browser
@@ -37,26 +38,34 @@ kotlin {
     sourceSets {
 
         androidMain.dependencies {
-            api(compose.preview)
-            api(libs.androidx.activity.compose)
-            api(libs.koin.androidx.compose)
+            implementation(compose.preview)
+            implementation(libs.androidx.activity.compose)
+
+            implementation(libs.koin.android)
+            implementation(libs.koin.androidx.compose)
+
+            implementation(libs.kotlinx.coroutines.android)
         }
         commonMain.dependencies {
-            api(projects.domain)
+            implementation(projects.domain)
+            implementation(projects.core)
 
-            api(compose.runtime)
-            api(compose.foundation)
-            api(compose.material3)
-            api(compose.material3AdaptiveNavigationSuite)
-            api(compose.ui)
-            api(compose.components.resources)
-            api(compose.components.uiToolingPreview)
-            api(libs.androidx.lifecycle.viewmodel.compose)
-            api(libs.androidx.lifecycle.runtime.compose)
-            api(libs.coil.compose)
+            implementation(compose.runtime)
+            implementation(compose.foundation)
+            implementation(compose.material3)
+            implementation(compose.material3AdaptiveNavigationSuite)
+            implementation(compose.ui)
+            implementation(compose.components.resources)
+            implementation(compose.components.uiToolingPreview)
+            implementation(libs.androidx.lifecycle.viewmodel.compose)
+            implementation(libs.androidx.lifecycle.runtime.compose)
+            implementation(libs.coil.compose)
 
-            api(libs.koin.compose)
-            api(libs.koin.compose.viewmodel)
+            implementation(libs.koin.core)
+            implementation(libs.koin.annotations)
+            implementation(libs.koin.compose)
+            implementation(libs.koin.compose.viewmodel)
+            implementation(libs.kotlinx.coroutines.core)
         }
     }
 }
@@ -83,4 +92,5 @@ android {
 
 dependencies {
     debugImplementation(compose.uiTooling)
+    add("kspCommonMainMetadata", libs.koin.ksp.compiler)
 }

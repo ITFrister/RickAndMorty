@@ -5,6 +5,7 @@ import org.jetbrains.kotlin.gradle.targets.js.webpack.KotlinWebpackConfig
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidLibrary)
+    alias(libs.plugins.kotlinKsp)
 }
 
 kotlin {
@@ -36,10 +37,15 @@ kotlin {
 
         androidMain.dependencies {
             implementation(libs.ktor.client.okhttp)
+            implementation(libs.koin.android)
         }
         commonMain.dependencies {
+            implementation(projects.domain)
+            implementation(projects.core)
+
             implementation(libs.bundles.ktor.common)
-            api(projects.domain)
+            implementation(libs.koin.core)
+            implementation(libs.koin.annotations)
         }
     }
 }
@@ -54,4 +60,8 @@ android {
     defaultConfig {
         minSdk = libs.versions.android.minSdk.get().toInt()
     }
+}
+
+dependencies {
+    add("kspCommonMainMetadata", libs.koin.ksp.compiler)
 }
